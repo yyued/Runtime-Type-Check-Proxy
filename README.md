@@ -27,9 +27,16 @@ function X ( x ) {
     console.log( x + 1 );
 }
 
+function Y ( x, y ) {
+    console.log( x + y );
+}
+
 RTCP( X, 'number' )( 1 );
 RTCP( X, 'number|string' )( '1' );
 RTCP( X, 'number' )( '1' ); // fail
+
+RTCP( Y, [ 'number', 'number' ] )( 1, 1 );
+RTCP( Y, [ 'number', 'number' ] )( 1, '1' ); // fail
 ```
 
 ## License

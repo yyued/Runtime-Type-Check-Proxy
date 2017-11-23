@@ -1,6 +1,6 @@
 # Runtime-Type-Check-Proxy
 
-通过 “代理” 函数，检查参数类型。它不同于 typescript 等静态检查方法，仅作为一个轻量级运行时的参数检查功能。
+通过 “代理” 函数，检查参数类型。它不同于 TypeScript 等静态检查方法，仅作为一个轻量级运行时的参数检查功能。
 
 ## 安装
 
@@ -25,9 +25,16 @@ function X ( x ) {
     console.log( x + 1 );
 }
 
+function Y ( x, y ) {
+    console.log( x + y );
+}
+
 RTCP( X, 'number' )( 1 );
 RTCP( X, 'number|string' )( '1' );
 RTCP( X, 'number' )( '1' ); // fail
+
+RTCP( Y, [ 'number', 'number' ] )( 1, 1 );
+RTCP( Y, [ 'number', 'number' ] )( 1, '1' ); // fail
 ```
 
 ## 许可
