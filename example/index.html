@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> RTCP__dev__ </title>
+    <meta name="description" content="">
+</head>
+<body>
+
+    <script src="./RTCP.min.js"></script>
+
+    <script>
+        RTCP.fail(( name, fail ) => {
+            console.error( `function ${ name }`, fail );
+        })
+
+        function X ( x ) {
+            console.log( `[ X ]`, x + 1 );
+        }
+
+        RTCP( X, 'number' )( 1 );
+        RTCP( X, 'number|string' )( '1' );
+        RTCP( X, 'number' )( '1' ); // fail
+    </script>
+
+</body>
+</html>
