@@ -2,6 +2,10 @@
 
 通过 “代理” 函数，检查参数类型。它不同于 TypeScript 等静态检查方法，仅作为一个轻量级运行时的参数检查功能。
 
+## 类型
+
+number / string / boolean / null / array / date / regexp / function / undefined / NaN / Infinity
+
 ## 安装
 
 ```sh

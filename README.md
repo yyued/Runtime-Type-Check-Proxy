@@ -4,6 +4,10 @@ Through "proxy" function, to check the arguments type. It is different from the 
 
 [简体中文](./README.zh-CN.md)
 
+## Type
+
+number / string / boolean / null / array / date / regexp / function / undefined / NaN / Infinity
+
 ## Installing
 
 ```sh
