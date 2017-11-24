@@ -12,8 +12,6 @@ module.exports = ( args, expect ) => {
 
         const argType = type( arg );
 
-        console.log( argType );
-
         _expectArray.indexOf( argType ) < 0 ?
             fail.push({ index, expect: _expect, got: argType }) : void 0;
     });
