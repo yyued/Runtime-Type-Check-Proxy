@@ -43,6 +43,20 @@ RTCP( Y, [ 'number', 'number' ] )( 1, 1 );
 RTCP( Y, [ 'number', 'number' ] )( 1, '1' ); // fail
 ```
 
+## Support as decorator
+
+```js
+class X {
+    @RTCP( 'string' )
+    hello ( name ) {
+        console.log( `hello, ${ name }` );
+    }
+}
+
+( new X() ).hello( 'foo' );
+( new X() ).hello(); // fail
+```
+
 ## License
 
 [MIT](./LICENSE)

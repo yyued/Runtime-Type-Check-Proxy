@@ -14,4 +14,14 @@ function X ( x ) {
 
 RTCP( X, 'number' )( 1 );
 RTCP( X, 'number|string' )( '1' );
-RTCP( X, 'number' )( '1' ); // fail
+// RTCP( X, 'number' )( '1' ); // fail
+
+class Y {
+    @RTCP( 'string' )
+    hello ( name ) {
+        console.log( `hello, ${ name }` );
+    }
+}
+
+( new Y() ).hello( );
+( new Y() ).hello( 1 );

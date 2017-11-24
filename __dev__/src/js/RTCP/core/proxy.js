@@ -7,11 +7,15 @@ let failCallback = void 0;
 
 const Proxy = function ( func, expect ) {
 
+    if ( arguments.length === 1 ) {
+        expect = func;
+    }
+
     expect = argumentsExpect( expect );
 
-    const funcName = func.name;
+    const proxyer = ( ...args ) => {
+        const funcName = func.name;
 
-    return ( ...args ) => {
         const { option: { isThrowFail } } = Proxy;
 
         const fail = assert( args, expect );
@@ -24,7 +28,16 @@ const Proxy = function ( func, expect ) {
         fail.length > 0 && failCallback ? failCallback( funcName, fail ) : void 0;
 
         func( ...args );
-    };
+    }
+
+    if ( arguments.length === 1 ) {
+        return ( target, key, descriptor ) => {
+            func = target[ key ];
+            descriptor.value = proxyer;
+        };
+    }
+
+    return proxyer;
 };
 
 Proxy.option = {
